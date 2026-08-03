@@ -149,12 +149,13 @@ Use the following once the Zenodo DOI is issued (fill placeholders):
 > The source code, preprocessing scripts, evaluation utilities, and released model
 > weights supporting this study are available at
 > https://github.com/Rezaul228/cxr_dual_branch_retrieval
-> (version v1.0.0) and archived at Zenodo
-> (DOI: https://doi.org/10.5281/zenodo.XXXXXXX).
+> (version v1.0.1) and archived at Zenodo
+> (DOI: https://doi.org/10.5281/zenodo.21776505).
 > The repository is released under the MIT License. MIMIC-CXR images and reports
 > are not redistributed; authorized users must obtain them from PhysioNet.
 
-See `ZENODO.md` for steps to mint the Zenodo DOI after enabling GitHub integration.
+Zenodo record: https://zenodo.org/records/21776505  
+Concept DOI (all versions): https://doi.org/10.5281/zenodo.21776504
 
 ## Citation
 
