@@ -18,6 +18,8 @@ The model jointly encodes each image–report pair with hierarchical gated co-at
 | `visualize.py` | Training curves, retrieval examples, ablation plots |
 | `analysis/run_mimic_duplicate_analysis.py` | MIMIC cross-split near-duplicate audit |
 | `analysis/run_indiana_duplicate_analysis.py` | Indiana (original-only) duplicate audit |
+| `data_processing/` | MIMIC-CXR and Indiana/OpenI → shard preprocessing |
+| `checkpoints/` | Released pretrained weights for the reported models |
 | `config.py` | Dataset and training hyperparameters |
 | `paths.py` | Data and output path configuration |
 
@@ -103,12 +105,21 @@ python measure_efficiency.py              # includes ResNet-50 and ClinicalBERT 
 ### Ablations
 
 ```bash
-python ablation_study.py --model-path saved_models/EXP/export/model_weights.pth
+python ablation_study.py \
+  --model-path checkpoints/aug_indiana_full_branch_v4_model_weights.pth
 
 python evaluate_orthogonal_ablation.py \
-  --full-model saved_models/FULL/export/model_weights.pth \
-  --no-ortho-model saved_models/NO_ORTHO/export/model_weights.pth \
-  --ablation-json comprehensive_ablation_results/ablation_results.json
+  --full-model checkpoints/aug_indiana_full_branch_v4_model_weights.pth \
+  --no-ortho-model checkpoints/aug_indiana_no_ortho_branch_v4_model_weights.pth
+```
+
+### Released checkpoints
+
+See `checkpoints/README.md`. Example:
+
+```bash
+python evaluate_checkpoint.py \
+  --model-path checkpoints/aug_indiana_full_branch_v4_model_weights.pth
 ```
 
 ### Split-integrity / duplicate analysis
@@ -130,6 +141,18 @@ python analysis/run_indiana_duplicate_analysis.py \
 ## Inference note
 
 Each known image–report pair is processed once through both branches to produce image-side and text-side embeddings. Co-attention is not re-run per query–candidate comparison; ranking uses cosine similarity over cached embeddings. Embeddings require both modalities as input.
+
+## Code availability (for manuscript)
+
+Use the following once the Zenodo DOI is issued (fill placeholders):
+
+> The source code, preprocessing scripts, evaluation utilities, and released model
+> weights supporting this study are available at
+> https://github.com/Rezaul228/cxr_dual_branch_retrieval
+> (version v1.0.0) and archived at Zenodo
+> (DOI: https://doi.org/10.5281/zenodo.XXXXXXX).
+> The repository is released under the MIT License. MIMIC-CXR images and reports
+> are not redistributed; authorized users must obtain them from PhysioNet.
 
 ## Citation
 

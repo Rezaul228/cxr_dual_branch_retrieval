@@ -9,13 +9,14 @@ build/
 venv/
 *.pth
 *.pt
+!checkpoints/*.pth
 *.h5
 *.pkl
 *.pickle
 saved_models/
 outputs/
 logs/
-checkpoints/
+checkpoints_local/
 comprehensive_ablation_results/
 analysis_outputs/
 .DS_Store
@@ -25,3 +26,4 @@ analysis_outputs/
 *.jpg
 *.jpeg
 !docs/**
+!checkpoints/README.md
