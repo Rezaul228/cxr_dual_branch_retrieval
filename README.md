@@ -154,6 +154,8 @@ Use the following once the Zenodo DOI is issued (fill placeholders):
 > The repository is released under the MIT License. MIMIC-CXR images and reports
 > are not redistributed; authorized users must obtain them from PhysioNet.
 
+See `ZENODO.md` for steps to mint the Zenodo DOI after enabling GitHub integration.
+
 ## Citation
 
 If you use this code, please cite the associated Scientific Reports article (DOI to be added upon publication) and this software deposit (Zenodo DOI).
